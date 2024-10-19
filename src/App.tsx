@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { UserWarning } from './UserWarning';
 import {
   addTodo,
@@ -20,17 +20,13 @@ export enum Status {
 }
 
 function getVisibleTodos(todos: Todo[], status: Status) {
-  const copyTodos = [...todos];
-
   if (status === Status.Active) {
-    return copyTodos.filter(todo => !todo.completed);
+    return todos.filter(todo => !todo.completed);
   }
-
   if (status === Status.Completed) {
-    return copyTodos.filter(todo => todo.completed);
+    return todos.filter(todo => todo.completed);
   }
-
-  return copyTodos;
+  return todos;
 }
 
 export const App: React.FC = () => {
@@ -41,7 +37,6 @@ export const App: React.FC = () => {
   const [loadingTodosId, setLoadingTodosId] = useState<Set<number>>(new Set());
   const [isUpdateError, setIsUpdateError] = useState(false);
 
-  const field = useRef<HTMLInputElement>(null);
   const todosLength = todos.length;
   const completedTodosId = todos
     .filter(todo => todo.completed)
@@ -52,10 +47,6 @@ export const App: React.FC = () => {
     getTodos()
       .then(setTodos)
       .catch(() => setErrorMessage('Unable to load todos'));
-  }, []);
-
-  useEffect(() => {
-    field.current?.focus();
   }, []);
 
   if (!USER_ID) {

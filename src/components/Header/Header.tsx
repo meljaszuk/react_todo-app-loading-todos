@@ -24,10 +24,12 @@ export const Header: React.FC<Props> = ({
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    onSubmit(textField);
-    setTextField(''); // Clear input field after submitting
-    setIsSubmitting(false);
+    if (textField.trim()) {
+      setIsSubmitting(true);
+      onSubmit(textField);
+      setTextField('');
+      setIsSubmitting(false);
+    }
   };
 
   return (
