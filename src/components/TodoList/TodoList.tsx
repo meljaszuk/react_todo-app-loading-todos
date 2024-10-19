@@ -5,7 +5,7 @@ import { TodoItem } from '../TodoItem/TodoItem';
 type Props = {
   visibleTodos: Todo[];
   onDelete: (val: number) => void;
-  loadedIds: number[];
+  loadedIds: number[]; // Przekazujemy listę załadowanych ID
   tempTodo: Todo | null;
   onStatusChange: (val: Todo) => Promise<void>;
   onEdit: (val: Todo) => Promise<void>;
@@ -40,7 +40,6 @@ export const TodoList: React.FC<Props> = ({
       )}
       {tempTodo && (
         <div data-cy="Todo" className="todo">
-          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label className="todo__status-label">
             <input
               data-cy="TodoStatus"
