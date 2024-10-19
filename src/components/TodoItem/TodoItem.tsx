@@ -7,7 +7,7 @@ type Props = {
   todo: Todo;
   onDelete: (val: number) => void;
   onStatusChange: (val: Todo) => Promise<void>;
-  isLoading: number[];
+  loadedIds: number[];
   onEdit: (val: Todo) => Promise<void>;
   isUpdateError: boolean;
 };
@@ -15,7 +15,7 @@ type Props = {
 export const TodoItem: React.FC<Props> = ({
   todo,
   onDelete,
-  isLoading,
+  loadedIds,
   onStatusChange,
   onEdit,
   isUpdateError,
@@ -112,7 +112,7 @@ export const TodoItem: React.FC<Props> = ({
       <div
         data-cy="TodoLoader"
         className={classNames('modal overlay', {
-          'is-active': isLoading.includes(todo.id),
+          'is-active': loadedIds.includes(todo.id),
         })}
       >
         {/* eslint-disable-next-line max-len */}

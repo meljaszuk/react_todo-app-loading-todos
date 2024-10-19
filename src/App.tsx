@@ -192,7 +192,7 @@ export const App: React.FC = () => {
         <TodoList
           visibleTodos={visibleTodos}
           onDelete={handleDelete}
-          isLoading={Array.from(loadingTodosId)}
+          loadedIds={Array.from(loadingTodosId)}
           tempTodo={tempTodo}
           onStatusChange={handleStatusChange}
           onEdit={handleEditTodo}
