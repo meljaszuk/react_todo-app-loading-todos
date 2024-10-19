@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { Todo } from '../../types/Todo';
 import { useEffect, useRef, useState } from 'react';
+import React from 'react';
 
 type Props = {
   todo: Todo;
