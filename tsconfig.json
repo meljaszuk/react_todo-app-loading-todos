@@ -4,10 +4,10 @@
   "compilerOptions": {
     "sourceMap": false,
     "types": ["node"],
-    "target": "esnext", 
+    "target": "esnext",
     "module": "esnext",
     "esModuleInterop": true,
     "strict": true,
-    "jsx": "react-jsx",
+    "jsx": "react"
   }
 }
